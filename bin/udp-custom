@@ -9,16 +9,16 @@ echo "change to time GMT +0000"
 ln -fs /usr/share/zoneinfo/Africa/Accra /etc/localtime
 
 # install udp-custom
-wget "https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
+wget "https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
 chmod +x /root/udp/udp-custom
 
-wget "https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/config/config.json" -O /root/udp/config.json &>/dev/null
+wget "https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/config/config.json" -O /root/udp/config.json &>/dev/null
 chmod 644 /root/udp/config.json
 
 if [ -z "$1" ]; then
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
-Description=UDP Custom by ePro Dev. Team
+Description=UDP Custom by DevF5R. Team
 
 [Service]
 User=root
@@ -34,7 +34,7 @@ EOF
 else
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
-Description=UDP Custom by ePro Dev. Team
+Description=UDP Custom by DevF5R. Team
 
 [Service]
 User=root

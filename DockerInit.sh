@@ -21,16 +21,16 @@ rm -rf /etc/limiter.sh
 rm -rf /etc/UDPCustom/limiter.sh
 rm -rf /etc/UDPCustom/module
 rm -rf /usr/bin/udp
-source <(curl -sSL 'https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/module/module') &>/dev/null
-wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/module/module' &>/dev/null
-wget -O /etc/UDPCustom/udp-custom 'https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/bin/udp-custom' &>/dev/null
+source <(curl -sSL 'https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/module/module') &>/dev/null
+wget -O /etc/UDPCustom/module 'https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/module/module' &>/dev/null
+wget -O /etc/UDPCustom/udp-custom 'https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/bin/udp-custom' &>/dev/null
 chmod +x /etc/UDPCustom/udp-custom
 chmod +x /etc/UDPCustom/module
 bash /etc/UDPCustom/udp-custom
-wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/module/limiter.sh'
+wget -O /etc/limiter.sh 'https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/module/limiter.sh'
 chmod +x /etc/limiter.sh
 cp /etc/limiter.sh /etc/UDPCustom
-wget -O /usr/bin/udp 'https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/module/udp'
+wget -O /usr/bin/udp 'https://raw.githubusercontent.com/info-devf5r/UDP-Custom-Installer-Manager/main/module/udp'
 chmod +x /usr/bin/udp
 apt remove netfilter-persistent -y
 rm -rf /etc/UDPCustom/udp-custom
