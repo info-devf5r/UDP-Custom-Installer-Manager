@@ -1,0 +1,55 @@
+#!/bin/bash
+
+cd
+rm -rf /root/udp
+mkdir -p /root/udp
+
+# change to time GMT +0000
+echo "change to time GMT +0000"
+ln -fs /usr/share/zoneinfo/Africa/Accra /etc/localtime
+
+# install udp-custom
+wget "https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/bin/udp-custom-linux-amd64" -O /root/udp/udp-custom &>/dev/null
+chmod +x /root/udp/udp-custom
+
+wget "https://raw.githubusercontent.com/Andyyuda/UDP-Custom-Installer-Manager/main/config/config.json" -O /root/udp/config.json &>/dev/null
+chmod 644 /root/udp/config.json
+
+if [ -z "$1" ]; then
+cat <<EOF > /etc/systemd/system/udp-custom.service
+[Unit]
+Description=UDP Custom by ePro Dev. Team
+
+[Service]
+User=root
+Type=simple
+ExecStart=/root/udp/udp-custom server
+WorkingDirectory=/root/udp/
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=default.target
+EOF
+else
+cat <<EOF > /etc/systemd/system/udp-custom.service
+[Unit]
+Description=UDP Custom by ePro Dev. Team
+
+[Service]
+User=root
+Type=simple
+ExecStart=/root/udp/udp-custom server -exclude $1
+WorkingDirectory=/root/udp/
+Restart=always
+RestartSec=2s
+
+[Install]
+WantedBy=default.target
+EOF
+fi
+
+systemctl start udp-custom &>/dev/null
+systemctl enable udp-custom &>/dev/null
+
+sleep 2
